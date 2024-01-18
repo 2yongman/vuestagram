@@ -16,12 +16,12 @@
       :style="{ backgroundImage: `url(${imageUrl})` }"
     ></div>
     <div class="filters">
-      <div class="filter-1"></div>
-      <div class="filter-1"></div>
-      <div class="filter-1"></div>
-      <div class="filter-1"></div>
-      <div class="filter-1"></div>
-      <div class="filter-1"></div>
+      <FilterBox
+        :imageUrl="imageUrl"
+        :필터명="필터명"
+        v-for="(필터명, i) in filterName"
+        :key="i"
+      ></FilterBox>
     </div>
   </div>
 
@@ -39,11 +39,14 @@
 
 <script>
 import Post from "./Post.vue";
+import FilterBox from "./FilterBox.vue";
+import filterName from "../assets/filtername.js";
 
 export default {
   name: "Container",
   components: {
     Post: Post,
+    FilterBox: FilterBox,
   },
   props: {
     data: Array,
@@ -53,6 +56,7 @@ export default {
   data() {
     return {
       write: "",
+      filterName: filterName,
     };
   },
   methods: {

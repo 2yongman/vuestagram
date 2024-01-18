@@ -21,7 +21,9 @@
         :필터명="필터명"
         v-for="(필터명, i) in filterName"
         :key="i"
-      ></FilterBox>
+      >
+        {{ 필터명 }}
+      </FilterBox>
     </div>
   </div>
 

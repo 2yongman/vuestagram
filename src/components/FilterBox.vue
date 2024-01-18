@@ -3,7 +3,9 @@
     :class="`${필터명} filter-item`"
     :style="`background-image: url(${imageUrl})`"
   >
-    {{ 필터명 }}
+    <slot></slot>
+    <slot name="a"></slot>
+    <slot name="b"></slot>
   </div>
 </template>
 

@@ -3,9 +3,8 @@
     :class="`${필터명} filter-item`"
     :style="`background-image: url(${imageUrl})`"
   >
-    <slot></slot>
-    <slot name="a"></slot>
-    <slot name="b"></slot>
+    {{ 필터명 }}
+    <button @click="fire">버튼</button>
   </div>
 </template>
 
@@ -15,6 +14,11 @@ export default {
   props: {
     imageUrl: String,
     필터명: String,
+  },
+  methods: {
+    fire() {
+      this.emitter.emit("filterName", this.필터명);
+    },
   },
 };
 </script>

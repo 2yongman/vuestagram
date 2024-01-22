@@ -2,7 +2,7 @@
   <div class="post">
     <div class="post-header">
       <div
-        class="profile"
+        :class="`profile`"
         :style="{ backgroundImage: `url(${인스타객체.userImage})` }"
       ></div>
       <span class="profile-name">{{ 인스타객체.name }}</span>
@@ -10,6 +10,7 @@
 
     <div
       class="post-body"
+      :class="`${인스타객체.filter}`"
       :style="{ backgroundImage: `url(${인스타객체.postImage})` }"
     ></div>
 
@@ -29,6 +30,7 @@ export default {
   name: "Post",
   props: {
     인스타객체: Object,
+    filter: String,
   },
 };
 </script>

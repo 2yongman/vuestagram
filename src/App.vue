@@ -24,6 +24,7 @@
     :data="data"
     :step="step"
     :imageUrl="imageUrl"
+    :filter="filter"
   />
   <button @click="more">더보기</button>
 
@@ -51,6 +52,12 @@ export default {
   components: {
     Container: Container,
   },
+  mounted() {
+    this.emitter.on("filterName", (filterName) => {
+      this.filter = filterName;
+    });
+  },
+
   data() {
     return {
       data: data,
@@ -58,6 +65,7 @@ export default {
       step: 0,
       imageUrl: "",
       입력한글: "",
+      filter: "",
     };
   },
   methods: {
@@ -87,7 +95,7 @@ export default {
         date: "May 15",
         liked: false,
         content: this.입력한글,
-        filter: "perpetua",
+        filter: this.filter,
       };
       this.data.unshift(내게시물); //unshift 배열 맨 앞에 넣어줌
       this.step = 0;

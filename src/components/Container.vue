@@ -5,7 +5,7 @@
 
   <div v-if="step == 0">
     <div v-for="(post, i) in data" :key="i">
-      <Post :인스타객체="post" />
+      <Post :인스타객체="post" :likesArrayNumber="i" />
     </div>
   </div>
 

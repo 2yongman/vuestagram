@@ -1,4 +1,11 @@
 <template>
+  <h1>{{ data[0].likes }}</h1>
+
+  <h4>안녕 {{ $store.state.name }}</h4>
+  <h4>나이는 {{ $store.state.age }}</h4>
+  <button @click="$store.commit('이름변경')">kim을 park으로 바꾸기</button>
+  <button @click="$store.commit('나이변경')">해마다 나이 증가</button>
+
   <div class="header">
     <ul class="header-button-left">
       <li @click="step--">Cancle</li>
@@ -86,7 +93,6 @@ export default {
       this.imageUrl = url;
     },
     publish() {
-      console.log(this.내게시물);
       var 내게시물 = {
         name: "Kim Hyun",
         userImage: "https://picsum.photos/100?random=3",

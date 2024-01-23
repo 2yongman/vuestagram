@@ -1,10 +1,10 @@
 <template>
   <div
+    @click="fire"
     :class="`${필터명} filter-item`"
     :style="`background-image: url(${imageUrl})`"
   >
     {{ 필터명 }}
-    <button @click="fire">버튼</button>
   </div>
 </template>
 

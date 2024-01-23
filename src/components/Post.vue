@@ -9,13 +9,14 @@
     </div>
 
     <div
+      @click="increaseLikes"
       class="post-body"
       :class="`${인스타객체.filter}`"
       :style="{ backgroundImage: `url(${인스타객체.postImage})` }"
     ></div>
 
     <div class="post-content">
-      <p>좋아요 수 : {{ 인스타객체.likes }}</p>
+      <p>좋아요 수 : {{ $store.state.likes[likesArrayNumber] }}</p>
       <p>
         <strong>{{ 인스타객체.name }}</strong
         >{{ 인스타객체.content }}
@@ -31,6 +32,12 @@ export default {
   props: {
     인스타객체: Object,
     filter: String,
+    likesArrayNumber: Number,
+  },
+  methods: {
+    increaseLikes() {
+      this.$store.commit("좋아요증가", this.likesArrayNumber);
+    },
   },
 };
 </script>
